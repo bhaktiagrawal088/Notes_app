@@ -10,19 +10,19 @@ export const SideBar = () => {
   return (
     <div className="flex flex-col gap-3 border-r-2 shadow-lg  border-b-2 border-cyan-500 w-[150px] h-screen p-3">
       <NavLink to="/" className={getstyle}>
-        <span class="material-symbols-outlined">home</span>
+        <span className="material-icons-outlined">home</span>
         <span>Home</span>
       </NavLink>
       <NavLink to="/archive" className={getstyle}>
-        <span class="material-symbols-outlined">archive</span>
+        <span className="material-icons-outlined">archive</span>
         <span>Archive</span>
       </NavLink>
       <NavLink to="/important" className={getstyle}>
-        <span class="material-symbols-outlined">label_important</span>
+        <span className="material-icons-outlined">label_important</span>
         <span>Important</span>
       </NavLink>
-      <NavLink to="trash" className={getstyle}>
-        <span class="material-symbols-outlined">delete</span>
+      <NavLink to="/trash" className={getstyle}>
+        <span className="material-icons-outlined">delete</span>
         <span>Trash</span>
       </NavLink>
     </div>
