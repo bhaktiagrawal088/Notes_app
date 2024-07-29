@@ -14,14 +14,14 @@ export const Archive = () => {
             <SideBar/> 
             <div className="flex flex-col w-full mt-7 ">
             <div className="flex flex-wrap gap-4 p-2  ">
+            <h3 className="w-full  ml-4 font-bold text-2xl"><b>Archive Notes</b></h3>
                   {archive?.length > 0 &&
-                    archive.map(({ id, title, description, isPinned }) => (
+                    archive.map(({ id, title, description}) => (
                       <NotesCard
                         key={id}
                         id={id}
                         title={title}
                         description={description}
-                        isPinned={isPinned}
                       />
                     ))}
                 </div>

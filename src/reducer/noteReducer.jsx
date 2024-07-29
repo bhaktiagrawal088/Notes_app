@@ -26,10 +26,27 @@ export const notesReducer = (state, {type , payload}) => {
                 archive : [...state.archive, state.notes.find(({id}) =>id === payload.id)],
                 notes : state.notes.filter(({id}) => id !== payload.id)};
         case "UNARCHIVE_NOTE":
-            return {...state,
+            return {
+                ...state,
                 notes : [...state.notes, state.archive.find(({id}) => id === payload.id)],
                 archive : state.archive.filter(({id}) => id !== payload.id),
             }
+        case "IMPORTANT_NOTE" :
+            return {...state,
+                important : [...state.important, state.notes.find(({id}) => id === payload.id)]}
+                // notes : state.notes.filter(({id}) => id !== payload.id)};
+        case "UNIMPORTANT_NOTE" :
+            return {...state,
+                // notes : [...state.notes, state.important.find(({id}) => id === payload.id)],
+                important : state.important.filter(({id}) => id !== payload.id)};
+        case "TRASH_NOTE" :
+            return {...state, 
+                trash : [...state.trash, state.notes.find(({id}) => id === payload.id)],
+                notes : state.notes.filter(({id}) => id !== payload.id)};
+        case "UNTRASH_NOTE" :
+            return {...state, 
+                notes : [...state.notes, state.trash.find(({id}) => id === payload.id)], 
+                trash : state.trash.filter(({id}) => id !== payload.id)}
         default : 
             return state;
     }

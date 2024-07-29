@@ -5,7 +5,7 @@ import { NotesCard } from "../../Component/NotesCard";
 import { useNotes } from "../../context/notesContext";
 
 function Home() {
-  const { title, description, notes, archive, noteDispatch } = useNotes();
+  const { title, description, notes, archive, important, noteDispatch } = useNotes();
 
   const onTitleChange = (e) => {
     noteDispatch({
@@ -29,13 +29,15 @@ function Home() {
       });
   };
 
-//   console.log(notes);
-   console.log(archive);
+console.log(notes);
+console.log(archive);
+console.log(important)
   
   const PinnedNote =
     notes?.length > 0 && notes.filter(({ isPinned }) => isPinned);
   const UnpinnedNote =
     notes?.length > 0 && notes.filter(({ isPinned }) => !isPinned);
+  
 
   return (
     <>

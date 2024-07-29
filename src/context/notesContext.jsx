@@ -1,6 +1,5 @@
 import {  createContext, useContext, useReducer } from "react";
 import { notesReducer } from "../reducer/noteReducer";
-import { Archive } from "../Pages/Archive";
 
 const notesContext = createContext();
 const NotesProvider = ({children}) =>{
@@ -10,11 +9,13 @@ const NotesProvider = ({children}) =>{
         title : "",
         description : "",
         archive : [],
+        important : [],
+        trash : [],
     }
-    const [{title, description, notes, archive}, noteDispatch] = useReducer(notesReducer, initialState)
+    const [{title, description, notes, archive, important, trash}, noteDispatch] = useReducer(notesReducer, initialState)
 
     return (
-        <notesContext.Provider value={{title, description, notes, archive, noteDispatch}}>
+        <notesContext.Provider value={{title, description, notes, archive, important, trash, noteDispatch}}>
             {children}
         </notesContext.Provider>
     )
