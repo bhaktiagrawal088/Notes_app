@@ -54,6 +54,20 @@ export const NotesCard = ({ id, title, description, isPinned , isImportant }) =>
         });
   }
 
+  const onDeleteArchiveClick = (id) => {
+    noteDispatch({
+      type: "TRASH_ARCHIVE_NOTE",
+      payload: { id },
+    });
+  };
+
+  const onDeleteImportantClick = (id) => {
+    noteDispatch({
+      type: "TRASH_IMPORTANT_NOTE",
+      payload: { id },
+    });
+  };
+
 
 
   const isNotesInArchive = findNotesInArchive(archive, id);
@@ -121,13 +135,21 @@ export const NotesCard = ({ id, title, description, isPinned , isImportant }) =>
             ) : <></>
           }
           
-          <button onClick={() => onDeleteClick(id)}
-          className="hover:text-red-500">
-          
-            <span className={
-              isNotesInDelete ? "material-icons" : "material-icons-outlined"}>delete</span>
-              
-          </button>
+          {!isNotesInArchive && !isNotesInImportant ? (
+            <button onClick={() => onDeleteClick(id)} className="hover:text-red-500">
+              <span className={isNotesInDelete ? "material-icons" : "material-icons-outlined"}>
+                delete
+              </span>
+            </button>
+          ) : isNotesInArchive ? (
+            <button onClick={() => onDeleteArchiveClick(id)} className="hover:text-red-500">
+              <span className="material-icons">delete</span>
+            </button>
+          ) : (
+            <button onClick={() => onDeleteImportantClick(id)} className="hover:text-red-500">
+              <span className="material-icons">delete</span>
+            </button>
+          )}
           
         </div>
         <div>

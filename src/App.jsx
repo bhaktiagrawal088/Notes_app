@@ -7,7 +7,6 @@ import { Trash } from './Pages/Trash'
 
 function App() {
 
-  const [notes , setNotes] = useState([])
 
   // useEffect(() => {
   //   const storedNotes = JSON.parse(localStorage.getItem('notes'))

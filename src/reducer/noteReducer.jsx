@@ -51,9 +51,20 @@ export const notesReducer = (state, {type , payload}) => {
             return {...state,
                 trash: state.trash.filter(({ trashedAt }) => Date.now() - trashedAt < 30 * 24 * 60 * 60 * 1000) // 30 days in milliseconds
             };
+        case "TRASH_ARCHIVE_NOTE":
+            const noteToTrashFromArchive = state.archive.find(({ id }) => id === payload.id);
+            return { ...state,
+                trash: [...state.trash, { ...noteToTrashFromArchive, trashedAt: Date.now() }],
+                archive: state.archive.filter(({ id }) => id !== payload.id)};
+          
+        case "TRASH_IMPORTANT_NOTE":
+            const noteToTrashFromImportant = state.important.find(({ id }) => id === payload.id);
+            return { ...state,
+                trash: [...state.trash, { ...noteToTrashFromImportant, trashedAt: Date.now() }],
+                important: state.important.filter(({ id }) => id !== payload.id),
+                notes: state.notes.filter(({ id }) => id !== payload.id)};
         default : 
             return state;
-
     }
 
 }   
