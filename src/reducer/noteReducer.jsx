@@ -41,14 +41,19 @@ export const notesReducer = (state, {type , payload}) => {
                 important : state.important.filter(({id}) => id !== payload.id)};
         case "TRASH_NOTE" :
             return {...state, 
-                trash : [...state.trash, state.notes.find(({id}) => id === payload.id)],
+                trash : [...state.trash, {...state.notes.find(({id}) => id === payload.id), trashedAt:Date.now()}],
                 notes : state.notes.filter(({id}) => id !== payload.id)};
         case "UNTRASH_NOTE" :
             return {...state, 
                 notes : [...state.notes, state.trash.find(({id}) => id === payload.id)], 
-                trash : state.trash.filter(({id}) => id !== payload.id)}
+                trash : state.trash.filter(({id}) => id !== payload.id)};
+        case "DELETE_EXPIRED_NOTES":
+            return {...state,
+                trash: state.trash.filter(({ trashedAt }) => Date.now() - trashedAt < 30 * 24 * 60 * 60 * 1000) // 30 days in milliseconds
+            };
         default : 
             return state;
+
     }
 
 }   

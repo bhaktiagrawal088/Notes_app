@@ -24,6 +24,9 @@ export const Important = () => {
                         id={id}
                         title={title}
                         description={description}
+                        isImportant={true} 
+
+                    
                       />
                     ))}
                 </div>
