@@ -25,6 +25,10 @@ export const SideBar = () => {
         <span className="material-icons-outlined">delete</span>
         <span>Trash</span>
       </NavLink>
+      <NavLink to="/about" className={getstyle}>
+        <span className="material-icons-outlined">person</span>
+        <span>About Me</span>
+      </NavLink>
     </div>
   );
 };

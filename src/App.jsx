@@ -4,6 +4,7 @@ import Home from  './Pages/Home/Home'
 import { Archive } from './Pages/Archive'
 import { Important } from './Pages/Important'
 import { Trash } from './Pages/Trash'
+import AboutMe from './Pages/AboutMe'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/archive' element={<Archive/>}/>
         <Route path='/important' element={<Important/>}/>
         <Route path='/trash' element={<Trash/>}/>
+        <Route path='/about' element={<AboutMe/>}/>
       </Routes>
     </>
   )
