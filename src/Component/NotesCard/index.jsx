@@ -79,6 +79,7 @@ export const NotesCard = ({ id, title, description, isPinned , isImportant }) =>
     : "bg-cyan-50 border-neutral-800";
 
   return (
+    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2" key={id}>
     <div
       className={`w-56 border border-neutral-800 p-2 rounded-md ${cardClass} shadow-md`}
       key={id}
@@ -159,7 +160,7 @@ export const NotesCard = ({ id, title, description, isPinned , isImportant }) =>
         </span>
       )}
         </div>
-        
+       </div> 
       </div>
     </div>
   );

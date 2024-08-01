@@ -8,7 +8,7 @@ export const SideBar = () => {
       : `hover:bg-indigo-800 hover:text-slate-50 ${commonstyle}` ;
   };
   return (
-    <div className="flex flex-col gap-3 border-r-2 shadow-lg  border-b-2 border-cyan-500 w-[150px] h-screen p-3">
+    <div className="flex flex-col gap-3 border-r-2 shadow-lg  border-b-2 border-cyan-500 md:w-[150px] md:h-screen p-3">
       <NavLink to="/" className={getstyle}>
         <span className="material-icons-outlined">home</span>
         <span>Home</span>
