@@ -10,9 +10,9 @@ export const Archive = () => {
     return (
         <>
         <Navbar/>
-        <main className="flex gap-3 bg-gray-100 min-h-screen">
+        <main className="flex flex-col md:flex-row gap-3 bg-gray-100 min-h-screen">
             <SideBar/> 
-            <div className="flex flex-col w-full mt-7 ">
+            <div className="flex flex-col w-full mt-7  p-4 md:p-6 ">
             <div className="flex flex-wrap gap-4 p-2  ">
             <h3 className="w-full  ml-4 font-bold text-2xl"><b>Archive Notes</b></h3>
                   {archive?.length > 0 &&
